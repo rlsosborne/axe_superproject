@@ -1,4 +1,4 @@
-set(libxml2_configure_args --without-iconv --without-zlib --without-threads)
+set(libxml2_configure_args --without-iconv --without-zlib --without-threads --without-ftp --without-http)
 
 ExternalProject_Add(libxml2
   PREFIX external
