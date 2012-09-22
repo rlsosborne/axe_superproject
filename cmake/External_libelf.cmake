@@ -6,5 +6,6 @@ ExternalProject_Add(libelf
   INSTALL_COMMAND make install
 )
 
+set(LIBELF_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/external/include/libelf)
 set(LIBELF_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/external/include/libelf)
 set(LIBELF_LIBRARIES ${CMAKE_CURRENT_BINARY_DIR}/external/lib/libelf.a)
