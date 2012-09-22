@@ -23,5 +23,4 @@ Make a directory for the build and in that directory run::
 
 The resulting axe binary can be found in the axe/src/axe-build subdirectory.
 
-_.
 .. _AXE: https://github.com/rlsosborne/tool_axe
