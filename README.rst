@@ -10,8 +10,16 @@ CMake superproject for AXE
 :Description: CMake superproject for AXE
 
 A CMake superproject for AXE_. This project contains no code itself. It uses
-CMake's ExternalProject module to download and build AXE and all its
+CMake's ExternalProject module to download and build AXE and its
 dependencies.
+
+Dependencies
+============
+
+The only external dependencies of the superproject are:
+
+* CMake_ (2.8 or later)
+* Python_
 
 Building
 ========
@@ -24,3 +32,5 @@ Make a directory for the build and in that directory run::
 The resulting axe binary can be found in the axe/src/axe-build subdirectory.
 
 .. _AXE: https://github.com/rlsosborne/tool_axe
+.. _CMake: http://www.cmake.org
+.. _Python: http://www.python.org
