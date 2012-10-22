@@ -10,13 +10,14 @@ set(CMAKE_MODULE_PATH
 include(ExternalProject)
 
 include(External_libxml2)
+include(External_libxslt)
 include(External_libelf)
 include(External_llvm)
 list(APPEND axe_build_vars
   "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external")
 
 ExternalProject_Add(axe
-  DEPENDS libxml2 libelf llvm
+  DEPENDS libxml2 libxslt libelf llvm
   CMAKE_CACHE_ARGS ${axe_build_vars}
   PREFIX axe
   GIT_REPOSITORY git://github.com/rlsosborne/tool_axe.git
