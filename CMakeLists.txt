@@ -16,6 +16,8 @@ include(External_llvm)
 include(External_SDL)
 list(APPEND axe_build_vars
   "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external")
+list(APPEND axe_build_vars
+  "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
 
 ExternalProject_Add(axe
   DEPENDS libxml2 libxslt libelf llvm SDL
