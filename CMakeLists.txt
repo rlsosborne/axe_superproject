@@ -15,8 +15,9 @@ include(External_libelf)
 include(External_llvm)
 include(External_SDL)
 list(APPEND axe_build_vars
-  "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external")
-list(APPEND axe_build_vars
+  "-DCMAKE_C_COMPILER:PATH=${CMAKE_CURRENT_BINARY_DIR}/external/bin/clang"
+  "-DCMAKE_CXX_COMPILER:PATH=${CMAKE_CURRENT_BINARY_DIR}/external/bin/clang++"
+  "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external"
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
 
 ExternalProject_Add(axe
