@@ -1,4 +1,7 @@
 set(SDL_configure_args --disable-shared)
+if (APPLE)
+  set(SDL_configure_args ${SDL_configure_args} --without-x)
+endif()
 
 ExternalProject_Add(SDL
   PREFIX external
