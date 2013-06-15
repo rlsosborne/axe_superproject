@@ -1,7 +1,7 @@
 ExternalProject_Add(clang
   PREFIX external
-  URL http://llvm.org/releases/3.1/clang-3.1.src.tar.gz
-  URL_MD5 59bf2d3120a3805f27cafda3823caaf8
+  URL http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz
+  URL_MD5 8284891e3e311829b8e44ac813d0c9ef
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
   INSTALL_COMMAND ""
@@ -15,7 +15,7 @@ list(APPEND llvm_build_vars
 ExternalProject_Add(llvm
   DEPENDS clang
   PREFIX external
-  URL http://llvm.org/releases/3.1/llvm-3.1.src.tar.gz
-  URL_MD5 16eaa7679f84113f65b12760fdfe4ee1
+  URL http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz
+  URL_MD5 40564e1dc390f9844f1711c08b08e391
   CMAKE_CACHE_ARGS ${llvm_build_vars}
 )
