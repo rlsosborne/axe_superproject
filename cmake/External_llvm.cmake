@@ -10,7 +10,7 @@ ExternalProject_Add(clang
 list(APPEND llvm_build_vars
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}"
   "-DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/external"
-  "-DLLVM_CLANG_SOURCE_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/external/src/clang")
+  "-DLLVM_EXTERNAL_CLANG_SOURCE_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/external/src/clang")
 
 ExternalProject_Add(llvm
   DEPENDS clang
