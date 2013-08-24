@@ -9,6 +9,7 @@ set(CMAKE_MODULE_PATH
 
 include(ExternalProject)
 
+include(External_Boost)
 include(External_libxml2)
 include(External_libxslt)
 include(External_libelf)
@@ -21,7 +22,7 @@ list(APPEND axe_build_vars
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
 
 ExternalProject_Add(axe
-  DEPENDS libxml2 libxslt libelf llvm SDL2
+  DEPENDS Boost libxml2 libxslt libelf llvm SDL2
   CMAKE_CACHE_ARGS ${axe_build_vars}
   PREFIX axe
   GIT_REPOSITORY git://github.com/rlsosborne/tool_axe.git
