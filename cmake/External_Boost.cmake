@@ -1,5 +1,4 @@
-set(Boost_bootstrap_args --prefix=${CMAKE_CURRENT_BINARY_DIR}/external)
-set(Boost_build_args link=static)
+set(Boost_build_args --prefix=${CMAKE_CURRENT_BINARY_DIR}/external link=static)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(Boost_build_args ${Boost_build_args} variant=debug)
@@ -21,8 +20,8 @@ else()
   set(Boost_CONFIGURE_COMMAND ./bootstrap.sh)
 endif()
 
-# Avoid Boost.Context as it requires MASM to build on Windows.
-set(Boost_build_args ${Boost_build_args} --without-context --without-coroutine)
+# Avoid building libraries with external dependencies.
+set(Boost_build_args ${Boost_build_args} --without-context --without-coroutine --without-iostreams --without-python)
 
 ExternalProject_Add(Boost
   PREFIX external
