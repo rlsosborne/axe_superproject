@@ -21,6 +21,13 @@ list(APPEND axe_build_vars
   "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external"
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
 
+# Workaround lack a platform file for clang, see cmake bug #13035
+if (MINGW)
+  list(APPEND axe_build_vars
+       "-DCMAKE_MODULE_PATH:PATH=${CMAKE_CURRENT_SOURCE_DIR}/cmake_clang_mingw_platform"
+       )
+endif()
+
 ExternalProject_Add(axe
   DEPENDS Boost libxml2 libxslt libelf llvm SDL2
   CMAKE_CACHE_ARGS ${axe_build_vars}
