@@ -16,10 +16,14 @@ dependencies.
 Dependencies
 ============
 
-The only external dependencies of the superproject are:
+The only required external dependencies are:
 
 * CMake_ (2.8 or later)
 * Python_
+
+On Linux you may need to install the X11 headers to get SDL video to work. On Ubuntu run::
+
+  apt-get install libx11-dev libxext-dev
 
 Building
 ========
