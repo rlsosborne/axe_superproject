@@ -28,6 +28,7 @@ set(Boost_build_args ${Boost_build_args} --without-context --without-coroutine -
 ExternalProject_Add(Boost
   PREFIX external
   URL http://downloads.sourceforge.net/project/boost/boost/1.54.0/boost_1_54_0.tar.bz2
+  URL_MD5 15cb8c0803064faef0c4ddf5bc5ca279
   CONFIGURE_COMMAND ${Boost_CONFIGURE_COMMAND}
   BUILD_COMMAND ""
   INSTALL_COMMAND ./b2 ${Boost_build_args} install
