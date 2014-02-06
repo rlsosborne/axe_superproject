@@ -1,4 +1,4 @@
-set(Boost_build_args --prefix=${CMAKE_CURRENT_BINARY_DIR}/external link=static)
+set(Boost_build_args --prefix=<INSTALL_DIR> link=static)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(Boost_build_args ${Boost_build_args} variant=debug)

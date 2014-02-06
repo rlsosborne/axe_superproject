@@ -9,7 +9,7 @@ ExternalProject_Add(clang
 
 list(APPEND llvm_build_vars
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}"
-  "-DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/external"
+  "-DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>"
   "-DLLVM_EXTERNAL_CLANG_SOURCE_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/external/src/clang")
 
 # Workaround LLVM bug #16246 by avoiding AArch64 backend.
