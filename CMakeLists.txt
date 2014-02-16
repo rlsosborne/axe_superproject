@@ -21,6 +21,30 @@ list(APPEND axe_build_vars
   "-DCMAKE_PREFIX_PATH:PATH=${CMAKE_CURRENT_BINARY_DIR}/external"
   "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
 
+if(APPLE)
+  # Try to determine if libc++ or libstdc++ is the default.
+  include(CheckCXXSourceCompiles)
+  check_cxx_source_compiles(
+    "#include <cstddef>
+     #ifndef _LIBCPP_VERSION
+     #error
+     #endif
+     int main() { return 0; }"
+    LIBCXX_IS_DEFAULT
+  )
+  # Explicitly set the standard library version. If we don't do this the clang
+  # executable we build might default to a different standard library to the one
+  # used by the system compiler, causing link errors.
+  if (${LIBCXX_IS_DEFAULT})
+    set(stdlib libc++)
+  else()
+    set(stdlib libstdc++)
+  endif()
+  list(APPEND axe_build_vars
+       "-DCMAKE_CXX_FLAGS:STRING=-stdlib=${stdlib} ${CMAKE_CXX_FLAGS}"
+       "-DCMAKE_EXE_LINKER_FLAGS:STRING=-stdlib=${stdlib} ${CMAKE_EXE_LINKER_FLAGS}")
+endif()
+
 # Workaround lack a platform file for clang, see cmake bug #13035
 if (MINGW)
   list(APPEND axe_build_vars
