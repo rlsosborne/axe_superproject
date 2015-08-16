@@ -1,7 +1,7 @@
 ExternalProject_Add(clang
   PREFIX external
-  URL http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz
-  URL_MD5 8284891e3e311829b8e44ac813d0c9ef
+  GIT_REPOSITORY http://llvm.org/git/clang.git
+  GIT_TAG release_37
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
   INSTALL_COMMAND ""
@@ -30,7 +30,7 @@ if(APPLE)
     BUILD_COMMAND ""
     INSTALL_COMMAND
     ${CMAKE_COMMAND} -E make_directory <INSTALL_DIR>/lib/c++ &&
-    ${CMAKE_COMMAND} -E copy_directory <SOURCE_DIR>/include <INSTALL_DIR>/lib/c++/v1
+    ${CMAKE_COMMAND} -E copy_directory <SOURCE_DIR>/include <INSTALL_DIR>/include/c++/v1
   )
   list(APPEND llvm_dependencies libcxx)
 endif()
@@ -38,7 +38,7 @@ endif()
 ExternalProject_Add(llvm
   DEPENDS ${llvm_dependencies}
   PREFIX external
-  URL http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz
-  URL_MD5 40564e1dc390f9844f1711c08b08e391
+  GIT_REPOSITORY http://llvm.org/git/llvm.git
+  GIT_TAG release_37
   CMAKE_CACHE_ARGS ${llvm_build_vars}
 )

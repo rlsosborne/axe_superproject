@@ -57,5 +57,6 @@ ExternalProject_Add(axe
   CMAKE_CACHE_ARGS ${axe_build_vars}
   PREFIX axe
   GIT_REPOSITORY git://github.com/rlsosborne/tool_axe.git
+  GIT_TAG llvm_37
   INSTALL_COMMAND ""
 )
